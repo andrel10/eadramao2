@@ -69,18 +69,3 @@ controller.update = async (req, res) => {
         res.status(422).send("Ocorreu um erro ao atualizar o cliente. " + error)
     }
 }
-
-controller.Cidade = async (req, res) => {
-    try{
-        const Cli = await Client.findAll({
-            where:{
-                cidade:req.params.cidade
-             }
-        })
-        res.status(200).json(client1)
-    }catch(error){ 
-        res.status(422).json("Ocorreu um erro ao buscar o cliente. " + error)
-    }
-}
-
-module.exports = controller
