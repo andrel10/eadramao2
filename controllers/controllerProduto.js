@@ -1,10 +1,10 @@
-const Product = require('../models/product.js');
+const Client = require('../models/product.js');
 const controller = {}
 
 controller.getAll = async (req, res) => {
     try{
-        let products = await Product.findAll()
-        res.status(200).json(products)
+        let client = await Client.findAll()
+        res.status(200).json(client)
     }catch(error){
         res.status(500).json(error)
     }
@@ -12,8 +12,8 @@ controller.getAll = async (req, res) => {
 
 controller.getById = async (req, res) => {
     try{
-        const product = await Product.findByPk(req.params.id)
-        res.status(200).json(product)
+        const client = await Client.findByPk(req.params.id)
+        res.status(200).json(client)
     }catch(error){ 
         res.status(422).json("Ocorreu um erro ao buscar o cliente. " + error)
     }
@@ -69,3 +69,5 @@ controller.update = async (req, res) => {
         res.status(422).send("Ocorreu um erro ao atualizar o cliente. " + error)
     }
 }
+
+module.exports = controller
